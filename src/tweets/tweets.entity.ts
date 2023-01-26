@@ -1,4 +1,4 @@
-import {Entity,Column,PrimaryGeneratedColumn,OneToMany,JoinColumn,ManyToOne, OneToOne} from 'typeorm';
+import {CreateDateColumn, Entity,Column,PrimaryGeneratedColumn,OneToMany,JoinColumn,ManyToOne, OneToOne} from 'typeorm';
 import { Comment } from './comments/comment.entity';
 import { User } from 'src/users/user.entity';
 
@@ -8,13 +8,13 @@ export class Tweet{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @OneToOne(()=>User,(user)=>user.id)
+    @ManyToOne(()=>User,(user)=>user.id)
     created_by:User;
 
     @Column()
     text:string;
 
-    @Column()
+    @CreateDateColumn()
     time:Date;
 
     @OneToMany(()=>Comment,(comment)=>comment.created_by)

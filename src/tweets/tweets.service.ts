@@ -7,8 +7,13 @@ import { Tweet } from './tweets.entity';
 export class TweetsService {
     constructor(@InjectRepository(Tweet) private tweetsRepository:Repository<Tweet>){ }
 
-    async insert(tweet:Tweet){
+    async create(tweet:Tweet){
         return await this.tweetsRepository.insert(tweet);
-
     }
+
+    async getTweetsByUserId(userId:number){
+        return await this.tweetsRepository.createQueryBuilder("tweet").where("tweet.created_by = :id",{id:userId}).execute();
+         
+    }
+    
 }

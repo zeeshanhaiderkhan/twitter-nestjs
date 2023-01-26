@@ -7,6 +7,7 @@ export class Comment{
     @PrimaryGeneratedColumn()
     id:number;
 
+    
     @ManyToOne(()=>User,(user)=>user.id)
     created_by:User;
 
@@ -16,7 +17,7 @@ export class Comment{
     @CreateDateColumn()
     created_at:Date;
 
-    @OneToOne(()=>Tweet,(tweet)=>tweet.created_by)
+    @ManyToOne(()=>Tweet,(tweet)=>tweet.created_by)
     tweet:Tweet;
 
 }

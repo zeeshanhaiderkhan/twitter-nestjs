@@ -26,7 +26,7 @@ import { TweetsModule } from './tweets/tweets.module';
     }),
     UsersModule,
     AuthModule,
-    TweetsModule
+    TweetsModule,
 
   ],
   controllers: [AppController],
