@@ -17,6 +17,7 @@ export class Tweet{
     @CreateDateColumn()
     time:Date;
 
+    
     @OneToMany(()=>Comment,(comment)=>comment.created_by)
     comments:Comment[]
     

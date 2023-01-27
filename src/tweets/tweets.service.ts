@@ -11,9 +11,14 @@ export class TweetsService {
         return await this.tweetsRepository.insert(tweet);
     }
 
+    //userId refers to user tweet posted by
     async getTweetsByUserId(userId:number){
         return await this.tweetsRepository.createQueryBuilder("tweet").where("tweet.created_by = :id",{id:userId}).execute();
          
     }
     
+    //id refers to tweet id
+    async getTweetById(id:number){
+        return await this.tweetsRepository.findOneBy({id});
+    }
 }
