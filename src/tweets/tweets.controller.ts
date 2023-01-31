@@ -17,6 +17,11 @@ export class TweetsController {
     async getTweetsByUserId(@Param('userId') userId:number){
         return await this.tweetsService.getTweetsByUserId(userId);
     }
+    
+    @Get('/followers/:id')
+    async getTweetsOfFollowing(@Param('id') id:number){
+        return await this.tweetsService.getTweetsOfFollowing(id);
+    }
 
 
 }

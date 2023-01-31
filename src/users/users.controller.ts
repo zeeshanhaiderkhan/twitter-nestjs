@@ -41,5 +41,13 @@ export class UsersController {
         return await this.usersService.remove(id);
     }
 
+    @Post(':userId/follow/:toFollowId')
+    async followUser(@Param() params:any){
+        return await this.usersService.followUser(
+            params.userId,
+            params.toFollowId
+        )
+    }
+
     
 }

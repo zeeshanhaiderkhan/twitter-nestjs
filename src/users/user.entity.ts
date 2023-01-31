@@ -1,4 +1,4 @@
-import {Entity,Column, PrimaryGeneratedColumn} from 'typeorm';
+import {Entity,Column, PrimaryGeneratedColumn, ManyToMany, JoinTable} from 'typeorm';
 
 
 @Entity()
@@ -21,9 +21,13 @@ export class User{
     @Column()
     dob:Date;
 
-    
+    @Column()
+    username:string;
 
     @Column({default:true})
     isActive:boolean;
 
+    @ManyToMany(()=>User)
+    @JoinTable({name:'follower'})
+    followers:User[]
 }

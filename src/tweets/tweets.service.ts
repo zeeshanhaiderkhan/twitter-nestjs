@@ -21,4 +21,9 @@ export class TweetsService {
     async getTweetById(id:number){
         return await this.tweetsRepository.findOneBy({id});
     }
+
+    async getTweetsOfFollowing(id:number){
+        return await this.tweetsRepository.createQueryBuilder('follower').getMany();
+       // return await this.tweetsRepository.createQueryBuilder("user").leftJoin('follower','users_followers','user.id=follower.user_1').getMany();
+    }
 }

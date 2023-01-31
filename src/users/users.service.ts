@@ -32,5 +32,11 @@ export class UsersService {
     async remove(id){
         return await  this.usersRepository.remove(id);
     }
+    
+    //userId, the one who is following
+    //toFollowId, the other user, which is being followed
+    async followUser(userId:number,toFollowId:number){
+        return await this.usersRepository.createQueryBuilder("user").relation(User,"followers").of(userId).add(toFollowId);
+    }
 
 }
