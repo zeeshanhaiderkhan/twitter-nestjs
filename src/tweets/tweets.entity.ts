@@ -18,7 +18,7 @@ export class Tweet{
     time:Date;
 
     
-    @OneToMany(()=>Comment,(comment)=>comment.created_by)
+    @OneToMany(()=>Comment,(comment)=>comment.tweet)
     comments:Comment[]
     
 

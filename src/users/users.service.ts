@@ -39,4 +39,6 @@ export class UsersService {
         return await this.usersRepository.createQueryBuilder("user").relation(User,"followers").of(userId).add(toFollowId);
     }
 
+    
+
 }

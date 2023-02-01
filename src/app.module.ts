@@ -18,7 +18,7 @@ import { TweetsModule } from './tweets/tweets.module';
       host:'127.0.0.1',
       port:3306,
       username:'root',
-      password:'',
+      password:'jintech',
       database:'twitter_db',
       autoLoadEntities:true,
       synchronize:true,

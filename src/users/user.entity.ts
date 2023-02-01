@@ -1,4 +1,5 @@
-import {Entity,Column, PrimaryGeneratedColumn, ManyToMany, JoinTable} from 'typeorm';
+import { Tweet } from 'src/tweets/tweets.entity';
+import {Entity,Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToMany} from 'typeorm';
 
 
 @Entity()
@@ -30,4 +31,7 @@ export class User{
     @ManyToMany(()=>User)
     @JoinTable({name:'follower'})
     followers:User[]
+
+    @OneToMany(()=>Tweet,(tweet)=>tweet.created_by)
+    tweets:Tweet[]
 }
